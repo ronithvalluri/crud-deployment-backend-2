@@ -33,20 +33,20 @@ studentRoute.route("/update-student/:id")
     {$set: req.body},
     (err,data)=>{
         if(err)
-            return err;
-            else
-            res.json(data);
-    })
+        return err;
+    else
+        res.json(data);
+})
 })
 
 studentRoute.delete("/delete-student/:id",(req,res)=>{
-    studentSchema.findByIdAndRemove(mongoose.Types.ObjectId(req.params.id),
-    (err,data)=>{
-        if(err)
-            return err;
-        else
-            res.json(data);
-    })
+studentSchema.findByIdAndRemove(mongoose.Types.ObjectId(req.params.id),
+(err,data)=>{
+    if(err)
+        return err;
+    else
+        res.json(data);
+})
 })
 
 module.exports = studentRoute;
